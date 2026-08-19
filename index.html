@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCore Engine - C++ Game Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2a5a8f 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid #ff6b35;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(255, 107, 53, 0.5);
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            margin-top: 20px;
+        }
+
+        .cta-buttons a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 12px 30px;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cta-buttons a:hover {
+            background: #ff8a5f;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 20px;
+            border-bottom: 1px solid #333;
+        }
+
+        section h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #ff6b35;
+            border-left: 4px solid #ff6b35;
+            padding-left: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: #1e1e1e;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #ff6b35;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: #252525;
+        }
+
+        .feature-card h3 {
+            color: #ff6b35;
+            margin-bottom: 10px;
+        }
+
+        .code-block {
+            background: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .code-block code {
+            color: #58d68d;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        footer {
+            background: #0f0f0f;
+            border-top: 2px solid #333;
+            padding: 30px 20px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .cta-buttons a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎮 BCore Engine</h1>
+        <p>A lightweight C++ game framework with PS3-era aesthetics</p>
+        <p style="font-size: 0.9em; color: #999;">Built on raylib • High Performance • Easy to Use</p>
+        
+        <div class="cta-buttons">
+            <a href="https://github.com/RicardoGonzalesSantos/BCore-Engine">View on GitHub</a>
+            <a href="https://github.com/RicardoGonzalesSantos/BCore-Engine#getting-started">Get Started</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>What is BCore Engine?</h2>
+            <p>BCore Engine is a lightweight, modular C++ framework built on top of <a href="https://www.raylib.com/" style="color: #ff6b35;">raylib</a>. It provides a clean, English-first API for building 2D and 3D games with a focus on simplicity and control.</p>
+            <p style="margin-top: 15px;">Perfect for indie developers, game jams, and educational projects.</p>
+        </section>
+
+        <section>
+            <h2>Core Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>🎬 Entity System</h3>
+                    <p>Parent/child transform hierarchy with cached matrices.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📷 Camera Control</h3>
+                    <p>Smooth lerp-following camera with screen shake.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💡 Lighting & Fog</h3>
+                    <p>Real-time lighting shader pipeline.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎨 Animation</h3>
+                    <p>Skeletal animation playback with looping.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔊 Audio System</h3>
+                    <p>Sound effects and streamed music.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🎥 Video Playback</h3>
+                    <p>MPEG1 cutscene support for retro style.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💥 Physics Triggers</h3>
+                    <p>Sphere collisions and AABB zones.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌀 Post-Processing</h3>
+                    <p>Render-to-texture screen effects.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Quick Start</h2>
+            <div class="code-block">
+                <code>#include "BCore.h"
+
+int main() {
+    bc::Initialize(1280, 720, "My Game");
+    bc::CameraSystem camera;
+    camera.Initialize();
+
+    while (bc::Window::IsOpen()) {
+        camera.Update();
+        bc::Window::ClearScreen(BLACK);
+        bc::Window::EndDrawing();
+    }
+
+    bc::Shutdown();
+    return 0;
+}</code>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Ricardo Gonzales dos Santos</p>
+        <p style="margin-top: 10px; font-size: 0.9em;">Made with ❤️ for game developers</p>
+    </footer>
+</body>
+</html>
