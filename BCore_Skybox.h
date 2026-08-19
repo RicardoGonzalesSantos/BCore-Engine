@@ -5,33 +5,33 @@
 #include "rlgl.h"
 
 namespace bc {
-    class SkyboxSistema {
+    class SkyboxSystem {
     public:
-        Model cuboCeu;
+        Model skyboxCube;
 
-        void Inicializar() {
+        void Initialize() {
             Mesh mesh = GenMeshCube(1.0f, 1.0f, 1.0f);
-            cuboCeu = LoadModelFromMesh(mesh);
+            skyboxCube = LoadModelFromMesh(mesh);
 
-            // NOTE: certifique-se de que shaders/skybox.vs e .fs existem no projeto
-            cuboCeu.materials[0].shader = LoadShader("shaders/skybox.vs", "shaders/skybox.fs");
+            // NOTE: Make sure shaders/skybox.vs and .fs exist in your project
+            skyboxCube.materials[0].shader = LoadShader("shaders/skybox.vs", "shaders/skybox.fs");
         }
 
-        void Desenhar(Camera3D cam) {
+        void Draw(Camera3D cam) {
             rlDisableDepthTest();
             rlDisableBackfaceCulling();
 
             Matrix matTranslation = MatrixTranslate(cam.position.x, cam.position.y, cam.position.z);
-            cuboCeu.transform = matTranslation;
+            skyboxCube.transform = matTranslation;
 
-            DrawModel(cuboCeu, {0,0,0}, 150.0f, WHITE);
+            DrawModel(skyboxCube, {0,0,0}, 150.0f, WHITE);
 
             rlEnableBackfaceCulling();
             rlEnableDepthTest();
         }
 
-        void Encerrar() {
-            UnloadModel(cuboCeu);
+        void Shutdown() {
+            UnloadModel(skyboxCube);
         }
     };
 }
