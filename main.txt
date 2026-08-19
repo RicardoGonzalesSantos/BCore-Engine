@@ -1,0 +1,18 @@
+#include "raylib.h"
+
+int main() {
+    // Inicializa a janela sem nenhuma macro da BCore
+    InitWindow(800, 450, "Teste Puro Raylib - Sem Tradutor");
+    SetTargetFPS(60);
+
+    while (!WindowShouldClose()) {
+        BeginDrawing();
+            ClearBackground(RAYWHITE);
+            DrawText("Se voce esta vendo isso, o compilador funciona!", 190, 200, 20, LIGHTGRAY);
+            DrawFPS(10, 10);
+        EndDrawing();
+    }
+
+    CloseWindow();
+    return 0;
+}

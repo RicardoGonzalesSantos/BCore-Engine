@@ -1,0 +1,20 @@
+// Build command (VS Code "Code Runner" / F6 style task)
+// FIX: adicionado -std=c++17 (necessario por causa de structured bindings
+// em BCore_Assets.h)
+
+// 1. Ir para a pasta do jogo
+cd $(CURRENT_DIRECTORY)
+
+// 2. Compilar o main.cpp ligando a Engine e as Dependencias
+g++ main.cpp -o $(NAME_PART).exe -O2 -Wall -std=c++17 ^
+-I"Dependencias\include" ^
+-I"BCore_Engine" ^
+-L"Dependencias\lib" ^
+-lraylib -lopengl32 -lgdi32 -lwinmm
+
+// 3. Rodar o jogo se a compilacao der certo
+cmd /c if %ERRORLEVEL% equ 0 "$(NAME_PART).exe"
+
+
+// Dica: salve este comando na sua IDE/editor como uma tarefa/atalho
+// (ex: tecla F6) para compilar e rodar com um clique.

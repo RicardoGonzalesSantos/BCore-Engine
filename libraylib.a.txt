@@ -1,0 +1,7 @@
+2. Localizando a Biblioteca (Os Músculos)
+Este arquivo contém o código já compilado que faz os gráficos aparecerem.
+• Caminho: C:\raylib\raylib\src\ (Normalmente na mesma pasta do arquivo anterior)
+• Arquivo: libraylib.a
+• O que fazer: Copie este arquivo para D:\Projeto_BCore\Dependencias\lib\
+
+Nota importante: Se você não encontrar o libraylib.a na pasta src, ele pode estar em uma pasta chamada win64 ou mingw dentro de C:\raylib\raylib\lib. Procure sempre pelo arquivo que termina com .a.
